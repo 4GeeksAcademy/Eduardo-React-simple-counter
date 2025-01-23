@@ -7,7 +7,16 @@ import "../styles/index.css";
 
 //import your own components
 import Home from "./component/home.jsx";
+import secondsCounter from "./component/secondsCounter.jsx"
 
 //render your react application
-ReactDOM.createRoot(document.getElementById('app')).render(<Home/>);
 
+
+let intervalID = setInterval(myCallback, 1000);
+
+let counter = 0; 
+
+function myCallback() {
+    counter++
+    ReactDOM.createRoot(document.getElementById('app')).render(<Home seconds={counter}/>);
+}
